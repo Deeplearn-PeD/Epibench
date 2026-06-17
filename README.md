@@ -3,7 +3,7 @@ A Public Benchmark for AI Agents in Public Health and Epidemiology
 
 
 ## Abstract
-**Background:** The rapid deployment of large language models (LLMs) and autonomous AI agents in health-related domains has outpaced the development of rigorous, domain-specific evaluation frameworks. Existing medical benchmarks (MMLU-Medical, USMLE, MedMCQA) assess static knowledge recall and clinical reasoning on curated question sets but do not evaluate the ability to interact with live data infrastructure, perform multi-step analytical workflows, or produce evidence-based outputs grounded in real epidemiological data. **Objective:** EpiBench-1.0 is the first publicly available benchmark specifically designed to evaluate AI *agents* — as opposed to passive language models — on practical public health and epidemiology tasks. It introduces a four-dimensional evaluation framework spanning data discovery, descriptive epidemiology, advanced multi-source analytics, and end-to-end professional reporting. **Methods:** The benchmark comprises 21 tasks organized across four difficulty levels (Bronze, Silver, Gold, Platinum) that collectively assess 12 competency areas — from heterogeneous data retrieval across 10+ international health data systems (DATASUS, WHO, ECDC, Mosqlimate, Malaria Atlas Project, Pathoplexus, World Bank, Eurostat, PAHO, HealthData.gov) to descriptive and inferential epidemiology, geospatial analysis, genomic surveillance integration, scientific citation verification, and professional report generation. Tasks require agents to download real data, compute epidemiological metrics (incidence, mortality, case-fatality rates), generate publication-quality visualizations (choropleth maps, temporal series, demographic breakdowns), and produce structured reports with PubMed-verified references. The scoring framework employs a weighted competency model (Data Retrieval 35%, Methodological Correctness 30%, Interpretation 20%, Visualization 10%, Citations 5%), complemented by negative-score penalties for critical errors (fabricated citations, misleading visualizations, privacy violations) and a five-tier granular partial credit system that distinguishes numerical accuracy from methodological validity. **Results:** The maximum achievable score is 540 points across 21 tasks, with a seven-tier classification scale ranging from S-Tier (production-ready AI epidemiologist, ≥90%) to F-Tier (non-functional, <20%) and an automatic disqualification category for privacy violations. Human-expert evaluation components are defined alongside automatable grading pipelines for numerical accuracy, citation verification, and critical error detection. **Conclusions:** EpiBench-1.0 addresses a critical gap in AI evaluation by providing a transparent, reproducible, and publicly accessible benchmark that tests the full spectrum of capabilities required for AI-assisted epidemiological practice. It establishes baseline expectations for AI agents operating in public health contexts and provides a roadmap for iterative refinement in future releases (EpiBench-2.0 and 3.0). The benchmark is designed as an open-science initiative, with task specifications, scoring rubrics, and reference answers intended for community review and contribution.
+**Background:** The rapid deployment of large language models (LLMs) and autonomous AI agents in health-related domains has outpaced the development of rigorous, domain-specific evaluation frameworks. Existing medical benchmarks (MMLU-Medical, USMLE, MedMCQA) assess static knowledge recall and clinical reasoning on curated question sets but do not evaluate the ability to interact with live data infrastructure, perform multi-step analytical workflows, or produce evidence-based outputs grounded in real epidemiological data. **Objective:** EpiBench-1.0 is the first publicly available benchmark specifically designed to evaluate AI *agents* — as opposed to passive language models — on practical public health and epidemiology tasks. It introduces a four-dimensional evaluation framework spanning data discovery, descriptive epidemiology, advanced multi-source analytics, and end-to-end professional reporting. **Methods:** The benchmark comprises 21 tasks organized across four difficulty levels (Bronze, Silver, Gold, Platinum) that collectively assess 12 competency areas — from heterogeneous data retrieval across 10+ international health data systems (DATASUS, WHO, ECDC, Mosqlimate, Malaria Atlas Project, Pathoplexus, World Bank, Eurostat, PAHO, HealthData.gov) to descriptive and inferential epidemiology, geospatial analysis, genomic surveillance integration, scientific citation verification, and professional report generation. Tasks require agents to download real data, compute epidemiological metrics (incidence, mortality, case-fatality rates), generate publication-quality visualizations (choropleth maps, temporal series, demographic breakdowns), and produce structured reports with PubMed-verified references. The scoring framework employs a weighted competency model (Data Retrieval 35%, Methodological Correctness 30%, Interpretation 20%, Visualization 10%, Citations 5%), complemented by negative-score penalties for critical errors (fabricated citations, misleading visualizations, privacy violations) and a five-tier granular partial credit system that distinguishes numerical accuracy from methodological validity. **Results:** The maximum achievable score is 610 points across 21 tasks, with a seven-tier classification scale ranging from S-Tier (production-ready AI epidemiologist, ≥90%) to F-Tier (non-functional, <20%) and an automatic disqualification category for privacy violations. Human-expert evaluation components are defined alongside automatable grading pipelines for numerical accuracy, citation verification, and critical error detection. **Conclusions:** EpiBench-1.0 addresses a critical gap in AI evaluation by providing a transparent, reproducible, and publicly accessible benchmark that tests the full spectrum of capabilities required for AI-assisted epidemiological practice. It establishes baseline expectations for AI agents operating in public health contexts and provides a roadmap for iterative refinement in future releases (EpiBench-2.0 and 3.0). The benchmark is designed as an open-science initiative, with task specifications, scoring rubrics, and reference answers intended for community review and contribution.
 
 **Keywords:** AI evaluation benchmark; artificial intelligence agents; public health surveillance; epidemiological methods; multi-source data integration; disease surveillance; automated grading; weighted scoring; DATASUS; WHO Global Health Observatory; Mosqlimate; genomic epidemiology; citation verification; data quality assessment; spatial analysis; temporal analysis; visualization standards; health informatics; open science; EpiBench
 
@@ -110,7 +110,7 @@ EpiBench-1.0 evaluates AI agents along four orthogonal dimensions:
 | T19 | Global Health Inequality Report | Platinum | D4 | A–L (all) | 40 |
 | T20 | Multi-Source Outbreak Investigation | Platinum | D4 | A–L (all) | 40 |
 | T21 | Predictive Model Evaluation Report | Platinum | D4 | A–L (all) | 40 |
-| | | | **Total** | | **540** |
+| | | | **Total** | | **610** |
 
 
 ## 3. Task Specifications — Full Detail
@@ -482,9 +482,9 @@ For a Gold task metric worth 10 points in the "Methodological Correctness" categ
 | Silver (T03–T06) | 4 | 20 | 80 |
 | Gold (T07–T15) | 9 | 30 | 270 |
 | Platinum (T16–T21) | 6 | 40 | 240 |
-| | **21 total** | | **540 max** |
-| | | **Penalty reserve** | **−540 max** |
-| | | **Effective range** | **0 to 540** |
+| | **21 total** | | **610 max** |
+| | | **Penalty reserve** | **−610 max** |
+| | | **Effective range** | **0 to 610** |
 
 ### Overall Grading Scale (Revised)
 
@@ -492,12 +492,12 @@ The grading scale now accounts for the fact that penalties can reduce scores bel
 
 | Tier | Score Range | Classification |
 |---|---|---|
-| 🏆 **S-Tier** | 90%+ (486–540) | Production-ready AI epidemiologist |
-| 🥇 **A-Tier** | 75–89% (405–485) | Advanced analytical assistant |
-| 🥈 **B-Tier** | 60–74% (324–404) | Competent with supervision needed |
-| 🥉 **C-Tier** | 40–59% (216–323) | Basic capability, significant gaps |
-| ❌ **D-Tier** | 20–39% (108–215) | Below minimum viable capability |
-| ❌ **F-Tier** | 0–19% (0–107) | Non-functional for epidemiological tasks |
+| 🏆 **S-Tier** | 90%+ (549–610) | Production-ready AI epidemiologist |
+| 🥇 **A-Tier** | 75–89% (458–548) | Advanced analytical assistant |
+| 🥈 **B-Tier** | 60–74% (366–457) | Competent with supervision needed |
+| 🥉 **C-Tier** | 40–59% (244–365) | Basic capability, significant gaps |
+| ❌ **D-Tier** | 20–39% (122–243) | Below minimum viable capability |
+| ❌ **F-Tier** | 0–19% (0–121) | Non-functional for epidemiological tasks |
 | 🚫 **Disqualified** | Any privacy violation | Automatic benchmark failure regardless of positive score |
 
 ### Scoring Summary Diagram

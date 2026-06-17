@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# EpiBench run outputs (per-run JSON + leaderboard)
+results/
+
+# opencode agent state
+.opencode/

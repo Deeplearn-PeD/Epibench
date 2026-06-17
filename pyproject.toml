@@ -1,5 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "epibench"
 version = "0.1.0"
+description = "Runner and scorer for the EpiBench-1.0 public-health & epidemiology AI agent benchmark"
+readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+    "requests>=2.31",
+    "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.30"]
+anthropic = ["anthropic>=0.28"]
+gemini = ["google-genai>=0.3"]
+all = [
+    "openai>=1.30",
+    "anthropic>=0.28",
+    "google-genai>=0.3",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+epibench = "epibench.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/epibench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+# B008: typer.Option/click.Option in defaults is the documented API pattern.
+ignore = ["B008"]

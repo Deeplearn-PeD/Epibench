@@ -1,0 +1,10 @@
+{
+  "task_id": "T01",
+  "_comment": "EXAMPLE reference answer — replace with validated values. This file demonstrates the schema documented in SCHEMA.md. T01 (Bronze) only assesses data discovery, so most fields are empty.",
+  "expected_sources": ["SINAN", "SIM", "SINASC"],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Bronze task: credit is based on correctly naming the DATASUS subsystems and giving accurate metadata (formats, year coverage)."
+}
