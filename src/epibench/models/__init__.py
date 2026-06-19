@@ -4,7 +4,14 @@ have the others present."""
 
 from __future__ import annotations
 
-from .base import BackendError, DummyBackend, ModelBackend, ModelResponse, make_backend
+from .base import (
+    BackendError,
+    DummyBackend,
+    ModelBackend,
+    ModelResponse,
+    fallback_backend_for,
+    make_backend,
+)
 
 __all__ = [
     "ModelBackend",
@@ -12,4 +19,5 @@ __all__ = [
     "BackendError",
     "DummyBackend",
     "make_backend",
+    "fallback_backend_for",
 ]

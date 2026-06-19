@@ -50,6 +50,20 @@ export ANTHROPIC_API_KEY=sk-ant-...
 export GEMINI_API_KEY=...
 ```
 
+### OpenRouter fallback
+
+If `OPENROUTER_API_KEY` is set, EpiBench will automatically fall back to
+OpenRouter when a provider-specific key is **missing** or when a request fails
+with an authentication error (e.g. expired/invalid key). Supported mappings:
+
+| Spec | Fallback OpenRouter id |
+|------|------------------------|
+| `openai:gpt-4o` | `openrouter:openai/gpt-4o` |
+| `anthropic:claude-sonnet-4-5` | `openrouter:anthropic/claude-sonnet-4-5` |
+| `gemini:gemini-2.0-flash` | `openrouter:google/gemini-2.0-flash` |
+
+Local/custom OpenAI-compatible endpoints (`openai:http://...`) are not mirrored.
+
 ### Optional: PMID verification
 
 Citation scoring verifies PMIDs against PubMed via NCBI E-utilities. For polite,
@@ -79,6 +93,35 @@ A model is selected with a `provider:model` spec string:
 
 For a non-default OpenAI base URL (`OPENAI_BASE_URL`), you can also export it
 and use the short `openai:<model>` form.
+
+## Example: Running with a Local Ollama Model
+
+EpiBench can target any OpenAI-compatible local endpoint, including [Ollama](https://ollama.com). No cloud API key is required.
+
+1. Make sure Ollama is installed and running, and pull a model (e.g., `qwen2.5`):
+
+   ```bash
+   ollama pull qwen2.5
+   ollama serve
+   ```
+
+2. Run EpiBench against the local endpoint. The model spec uses the form `openai:<base_url>:<model>`:
+
+   ```bash
+   # Run a single task
+   epibench run --model openai:http://localhost:11434/v1:qwen2.5 --tasks T01
+
+   # Run all Bronze tasks
+   epibench run --model openai:http://localhost:11434/v1:qwen2.5 --tasks bronze
+   ```
+
+Replace `qwen2.5` with whichever model is installed locally (for example, `llama3`, `mistral`, or `gemma`).
+
+If the local model name itself contains a colon (Ollama tags, e.g. `qwen3.5:4b`), use a double colon `::` to separate the base URL from the model name so the tag is preserved:
+
+```bash
+epibench run --model openai:http://localhost:11434/v1::qwen3.5:4b --tasks T01
+```
 
 ## Running tasks
 

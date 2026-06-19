@@ -73,3 +73,46 @@ def test_leaderboard_appends_across_runs(tmp_path, monkeypatch):
         write_run(manifest, tmp_path)
     board = load_leaderboard(tmp_path)
     assert len(board) == 2
+
+
+class _AuthFailingBackend(DummyBackend):
+    def complete(self, prompt: str, *, system: str | None = None) -> ModelResponse:
+        raise RuntimeError("401 Unauthorized: invalid API key")
+
+
+class _GenericFailingBackend(DummyBackend):
+    def complete(self, prompt: str, *, system: str | None = None) -> ModelResponse:
+        raise RuntimeError("connection reset")
+
+
+def test_runtime_openrouter_fallback_on_auth_error(tmp_path, monkeypatch):
+    monkeypatch.setenv("EPIBENCH_NETWORK_SCORING", "0")
+    monkeypatch.setenv("EPIBENCH_RESULTS_DIR", str(tmp_path))
+
+    from epibench import runner as runner_mod
+
+    fallback = _ScriptedBackend("fallback", "fallback response")
+    monkeypatch.setattr(runner_mod, "fallback_backend_for", lambda _b, _s: fallback)
+
+    backend = _AuthFailingBackend("failing")
+    manifest = run_benchmark(all_tasks()[:1], backend)
+    record = manifest.tasks[0]
+    assert record.error is None
+    assert record.response_text == "fallback response"
+    assert any("OpenRouter fallback" in note for note in record.score.notes)
+
+
+def test_no_fallback_on_non_auth_error(tmp_path, monkeypatch):
+    monkeypatch.setenv("EPIBENCH_NETWORK_SCORING", "0")
+    monkeypatch.setenv("EPIBENCH_RESULTS_DIR", str(tmp_path))
+
+    from epibench import runner as runner_mod
+
+    fallback = _ScriptedBackend("fallback", "should not be used")
+    monkeypatch.setattr(runner_mod, "fallback_backend_for", lambda _b, _s: fallback)
+
+    backend = _GenericFailingBackend("failing")
+    manifest = run_benchmark(all_tasks()[:1], backend)
+    record = manifest.tasks[0]
+    assert record.error is not None
+    assert "connection reset" in record.error
