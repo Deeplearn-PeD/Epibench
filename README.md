@@ -18,8 +18,9 @@ A Public Benchmark for AI Agents in Public Health and Epidemiology
 7. [7. Reference Answers and Automated Grading](#7-reference-answers-and-automated-grading)
 8. [8. Required Data Sources and Infrastructure](#8-required-data-sources-and-infrastructure)
 9. [9. Comparison with Existing Benchmarks](#9-comparison-with-existing-benchmarks)
-10. [10. Future Directions](#10-future-directions)
-11. [References](#references)
+10. [10. Leaderboard](#10-leaderboard)
+11. [11. Future Directions](#11-future-directions)
+12. [References](#references)
 
 ---
 
@@ -687,7 +688,33 @@ To attempt EpiBench-1.0, an AI agent must possess:
 - **Granular partial credit for methodological rigor** (§5.3)
 
 
-## 10. Future Directions
+## 10. Leaderboard
+
+Results from local `epibench` runs (`epibench compare`) and the published EpidBot self-assessment.
+
+### Local runs
+
+| Rank | Model | Score | Max | % | Tier | Run ID |
+|---|---|---:|---:|---:|---:|---:|
+| 1 | anthropic:claude-sonnet-4-5 | 290.68 | 590 | 49.27 | C | 20260620T174858 |
+| 2 | dummy:demo | 223.33 | 610 | 36.61 | D | 20260620T104639 |
+| 3 | dummy:demo | 182.23 | 610 | 29.87 | D | 20260620T173049 |
+| 4 | openai:gpt-4o | 125.13 | 270 | 46.34 | D | 20260620T174237 |
+| 5 | openai:gpt-4o | 70.18 | 240 | 29.24 | F | 20260620T174346 |
+| 6 | openai:gpt-4o | 46.75 | 80 | 58.43 | F | 20260620T174157 |
+
+> **Note:** The *Max* column reflects the point total of the task subset that was run (610 = full benchmark). Several entries are partial runs. The complete local leaderboard is written to `results/leaderboard.csv` after each run.
+
+### EpidBot self-assessment
+
+| Version | Score | Max | % | Tier | Source |
+|---|---:|---:|---:|---:|---|
+| v3 — post tool-upgrade | 418 | 550 | 76.0 | A | [Zenodo DOI:10.5281/zenodo.20709172](https://doi.org/10.5281/zenodo.20709172) |
+| Earlier version | 340 | 550 | 61.8 | B | Zenodo |
+
+> **Note:** The Zenodo assessment uses a 550-point version of EpiBench-1.0; the current repository release scores out of **610** points.
+
+## 11. Future Directions
 
 ### EpiBench-2.0 (Planned)
 
