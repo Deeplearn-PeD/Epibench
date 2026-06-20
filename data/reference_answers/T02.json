@@ -1,9 +1,17 @@
 {
   "task_id": "T02",
-  "expected_sources": ["WHO", "World Bank", "Eurostat"],
+  "expected_sources": [
+    "WHO",
+    "World Bank",
+    "Eurostat"
+  ],
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Bronze task: credit is based on correctly naming the three requested international data sources (WHO, World Bank, Eurostat) and giving accurate indicator coverage information."
+  "methodology_keywords": [
+    "indicator_codes",
+    "life_expectancy",
+    "infant_mortality"
+  ],
+  "notes": "Reference answer for T02 (Global Health Data Finder). Key indicator codes by source:\n\nWHO:\n- WHOSIS_000001: Life expectancy at birth\n- WHOSIS_000002: Healthy life expectancy (HALE) at birth\n- WHOSIS_000015: Life expectancy at age 60\n- WHOSIS_000007: Healthy life expectancy (HALE) at age 60\n- WSH_INF_MORT: Infant mortality rate\n- MDG_0000000001: Under-5 mortality rate\n- MDG_0000000026: Maternal mortality ratio\n\nWorld Bank:\n- SP.DYN.LE00.IN: Life expectancy at birth (total)\n- SP.DYN.IMRT.IN: Infant mortality rate\n- SH.DYN.MORT: Under-5 mortality rate\n\nEurostat:\n- demo_mlexpec: Life expectancy by age and sex\n- hlth_ehis_de2: Healthy life years\n- hlth_cd_aro: Causes of death — absolute numbers\n- hlth_cd_asdr: Causes of death — standardised death rate\n\nCoverage: WHO and World Bank are global (~1960/2000–2023, annual, national); Eurostat covers EU/EFTA/candidates (~1990–2023, annual, national + NUTS2)."
 }
