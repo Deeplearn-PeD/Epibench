@@ -34,6 +34,7 @@ class ReferenceAnswer:
     expected_sources: set[str] = field(default_factory=set)
     minimum_required_pmids: int = 0
     methodology_keywords: list[str] = field(default_factory=list)
+    require_all_sources: bool = True
     notes: str = ""
     raw: dict = field(default_factory=dict)
 
@@ -61,6 +62,7 @@ def load_reference(task_id: str, directory: Path | None = None) -> ReferenceAnsw
         expected_sources={str(s) for s in data.get("expected_sources", [])},
         minimum_required_pmids=int(data.get("minimum_required_pmids", 0)),
         methodology_keywords=list(data.get("methodology_keywords", [])),
+        require_all_sources=bool(data.get("require_all_sources", True)),
         notes=str(data.get("notes", "")),
         raw=data,
     )

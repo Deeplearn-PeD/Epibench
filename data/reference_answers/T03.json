@@ -1,11 +1,20 @@
 {
   "task_id": "T03",
   "expected_sources": [
-    "SINAN"
+    "SINAN",
+    "Infodengue",
+    "Mosqlimate"
   ],
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Silver task: national dengue temporal series from SINAN. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "monthly_counts",
+    "temporal_aggregation",
+    "trend_line",
+    "peak_month",
+    "seasonality"
+  ],
+  "require_all_sources": false,
+  "notes": "Silver task: national dengue temporal series. Expected output includes monthly case counts, a time-series plot with trend line, identification of the peak month, and a description of the seasonal pattern. Acceptable data sources: SINAN, Infodengue, or Mosqlimate."
 }

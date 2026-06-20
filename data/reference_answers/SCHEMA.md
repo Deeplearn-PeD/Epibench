@@ -40,8 +40,14 @@ are present.
   // (−5) penalty.
   "expected_sources": ["SINAN", "SIM", "SINASC"],
 
-  // Free-text keywords describing the expected methodology. (Reserved for a
-  // future LLM-as-judge pass; not used by the current deterministic scorer.)
+  // When true (default), the response must mention ALL expected_sources to get
+  // full data-retrieval credit. When false, any one acceptable source is enough
+  // (useful when the task permits alternatives, e.g. SINAN / Infodengue / Mosqlimate).
+  "require_all_sources": true,
+
+  // Free-text keywords describing the expected methodology. These are also used
+  // as a coarse keyword proxy for methodology and interpretation scoring when
+  // no numerical expected_values are provided.
   "methodology_keywords": ["age_standardization", "direct_method"],
 
   // Free-form notes for human reviewers.

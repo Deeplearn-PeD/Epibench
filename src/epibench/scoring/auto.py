@@ -89,6 +89,48 @@ def detect_source_mismatch(text: str, expected_sources: set[str]) -> list[str]:
 
 
 # --------------------------------------------------------------------------- #
+# Keyword-based proxies for methodology, visualization and interpretation.
+# These are intentionally coarse: they give models partial auto-credit while
+# still flagging the task for human review (README §6).
+# --------------------------------------------------------------------------- #
+_VIZ_KEYWORDS = re.compile(
+    r"\b(plot|chart|figure|graph|visualization|visualisation|map|choropleth|"
+    r"time.series|bar chart|line chart|histogram|scatter)\b",
+    re.IGNORECASE,
+)
+
+
+def detect_visualization(text: str) -> float:
+    """Return 1.0 if the response mentions creating a visualization, else 0.0."""
+    return 1.0 if _VIZ_KEYWORDS.search(text) else 0.0
+
+
+def detect_keyword_coverage(text: str, keywords: list[str]) -> float:
+    """Fraction of reference keywords that appear in the text.
+
+    Keywords may use underscores (e.g. "peak_month"); the text may use spaces,
+    underscores or hyphens ("peak month", "peak-month"). Matching is word-based
+    and treats these separators equivalently.
+    """
+    if not keywords:
+        return 0.0
+    lowered = text.lower()
+    # Normalize separators to spaces so "peak_month" matches "peak month".
+    normalized_text = re.sub(r"[_\-]+", " ", lowered)
+    hits = 0
+    for kw in keywords:
+        normalized_kw = re.sub(r"[_\-]+", " ", kw.lower())
+        if re.search(rf"\b{re.escape(normalized_kw)}\b", normalized_text):
+            hits += 1
+    return hits / len(keywords)
+
+
+def detect_interpretation_keywords(text: str, keywords: list[str]) -> float:
+    """Alias for detect_keyword_coverage; used for interpretation scoring."""
+    return detect_keyword_coverage(text, keywords)
+
+
+# --------------------------------------------------------------------------- #
 # PMID verification (NCBI E-utilities). Network is optional.
 # --------------------------------------------------------------------------- #
 def verify_pmids(
@@ -172,16 +214,26 @@ def auto_score(
     # ---- Data retrieval & quality ----------------------------------------- #
     if reference.expected_sources:
         missing = detect_source_mismatch(response_text, reference.expected_sources)
-        coverage = 1.0 - len(missing) / len(reference.expected_sources)
-        result.category_scores.data_retrieval = coverage
-        if missing:
-            result.penalties[Penalty.INCORRECT_SOURCE] = -5
-            result.notes.append(f"Missing/incorrect sources: {', '.join(missing)}")
+        if reference.require_all_sources:
+            coverage = 1.0 - len(missing) / len(reference.expected_sources)
+            result.category_scores.data_retrieval = coverage
+            if missing:
+                result.penalties[Penalty.INCORRECT_SOURCE] = -5
+                result.notes.append(f"Missing/incorrect sources: {', '.join(missing)}")
+        else:
+            # Any acceptable source counts; full credit if at least one is mentioned.
+            mentioned = len(reference.expected_sources) - len(missing)
+            coverage = 1.0 if mentioned > 0 else 0.0
+            result.category_scores.data_retrieval = coverage
+            result.notes.append(
+                f"Acceptable sources: {', '.join(sorted(reference.expected_sources))}; "
+                f"mentioned: {mentioned}"
+            )
     elif task.weight_categories and "data_retrieval" in task.weight_categories:
         result.category_scores.data_retrieval = None  # needs human review
         result.needs_human_review = True
 
-    # ---- Methodological correctness (numerical) --------------------------- #
+    # ---- Methodological correctness (numerical or keyword-based) ---------- #
     if reference.expected_values:
         credits = []
         matched = 0
@@ -200,6 +252,16 @@ def auto_score(
         if matched == 0 and reference.expected_values:
             # correct-method/wrong-result is a human judgment; flag it.
             result.needs_human_review = True
+    elif reference.methodology_keywords:
+        # No numerical reference values, but methodology keywords are provided.
+        # Give partial credit for mentioning expected methodological elements.
+        coverage = detect_keyword_coverage(response_text, reference.methodology_keywords)
+        result.category_scores.methodology = coverage
+        result.notes.append(
+            f"Methodology keyword coverage: {coverage:.0%} "
+            f"({reference.methodology_keywords})"
+        )
+        result.needs_human_review = True
     else:
         result.category_scores.methodology = None  # human review
         result.needs_human_review = True
@@ -228,12 +290,25 @@ def auto_score(
             result.category_scores.citations = ok / len(verified) if verified else 0.0
 
     # ---- Visualization & interpretation ----------------------------------- #
-    # Both require a human reviewer per §6.
+    # Both require a human reviewer per §6, but we award coarse auto-credit when
+    # the response mentions a visualization or expected interpretive keywords.
     if task.weight_categories and "visualization" in task.weight_categories:
-        result.category_scores.visualization = None
+        viz_score = detect_visualization(response_text)
+        result.category_scores.visualization = viz_score
+        if viz_score < 1.0:
+            result.notes.append("Visualization mentioned? no (flagged for human review)")
+        else:
+            result.notes.append("Visualization mentioned: yes (still requires human review)")
         result.needs_human_review = True
     if task.weight_categories and "interpretation" in task.weight_categories:
-        result.category_scores.interpretation = None
+        interp_keywords = reference.methodology_keywords or []
+        interp_score = detect_interpretation_keywords(response_text, interp_keywords)
+        result.category_scores.interpretation = interp_score
+        if interp_keywords:
+            result.notes.append(
+                f"Interpretation keyword coverage: {interp_score:.0%} "
+                f"({interp_keywords})"
+            )
         result.needs_human_review = True
 
     return result
