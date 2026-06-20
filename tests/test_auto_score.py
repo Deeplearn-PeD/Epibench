@@ -6,6 +6,7 @@ from epibench.scoring.auto import (
     detect_source_mismatch,
     extract_labeled_numbers,
     extract_pmids,
+    verify_pmids,
 )
 from epibench.scoring.reference import ReferenceAnswer
 from epibench.scoring.rubric import Penalty
@@ -73,3 +74,19 @@ def test_auto_score_numerical(monkeypatch):
     # 8% off → within 10% tier (0.6 credit).
     result = auto_score(task, "Incidence rate: 108.0", reference)
     assert result.category_scores.methodology == 0.6
+
+
+def test_verify_pmids_handles_non_json_response(monkeypatch):
+    """If NCBI returns an empty or non-JSON body, verify_pmids must not crash."""
+    monkeypatch.setenv("EPIBENCH_NETWORK_SCORING", "1")
+
+    class FakeResponse:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            raise ValueError("No JSON object could be decoded")
+
+    monkeypatch.setattr("requests.get", lambda *args, **kwargs: FakeResponse())
+    result = verify_pmids({12345678})
+    assert result == {12345678: False}

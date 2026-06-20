@@ -171,10 +171,10 @@ def verify_pmids(
             timeout=settings.http_timeout,
         )
         resp.raise_for_status()
+        payload = resp.json()
     except Exception:
         return {p: False for p in pmids}
 
-    payload = resp.json()
     result = {}
     uids = set(payload.get("result", {}).get("uids", []))
     for p in pmids:
