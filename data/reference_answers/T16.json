@@ -3,9 +3,19 @@
   "expected_sources": [
     "SINAN"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
-  "minimum_required_pmids": 0,
+  "minimum_required_pmids": 3,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Platinum task: comprehensive dengue report from SINAN. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "epidemiological_report",
+    "dengue",
+    "temporal_analysis",
+    "spatial_distribution",
+    "demographic_profile",
+    "data_quality",
+    "citations",
+    "executive_summary"
+  ],
+  "notes": "Platinum task: comprehensive dengue epidemiological report in a given Brazilian state for a given year using SINAN data. Expected output includes a professional PDF report with table of contents, executive summary, 5+ sections, embedded visualizations (map, temporal chart, demographic chart, quality assessment), and at least 3 verified PubMed citations."
 }

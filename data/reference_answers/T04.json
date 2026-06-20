@@ -3,9 +3,16 @@
   "expected_sources": [
     "SIM"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Silver task: mortality spatial analysis from SIM. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "spatial_analysis",
+    "choropleth_map",
+    "mortality_rate",
+    "top_10_municipalities",
+    "rate_computation"
+  ],
+  "notes": "Silver task: mortality spatial analysis. Expected output includes a choropleth map of municipalities, identification of the top-10 high-mortality municipalities, and correct mortality rate computation from SIM data."
 }

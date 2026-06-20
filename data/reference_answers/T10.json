@@ -3,9 +3,17 @@
   "expected_sources": [
     "EpiScanner"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: epidemic parameter estimation from EpiScanner. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "epidemic_parameters",
+    "R0",
+    "peak_timing",
+    "epidemic_duration",
+    "epidemic_curve",
+    "confidence_intervals"
+  ],
+  "notes": "Gold task: estimate epidemic parameters (R0, peak timing, epidemic duration) for dengue in a given state using EpiScanner data. Expected output includes parameter estimates with confidence intervals, comparison across municipalities, and epidemic curve overlay."
 }

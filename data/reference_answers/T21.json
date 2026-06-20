@@ -3,9 +3,18 @@
   "expected_sources": [
     "Mosqlimate"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
-  "minimum_required_pmids": 0,
+  "minimum_required_pmids": 3,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Platinum task: predictive model evaluation from Mosqlimate registry. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "predictive_models",
+    "model_registry",
+    "model_comparison",
+    "spatial_resolution",
+    "temporal_resolution",
+    "forecast_accuracy",
+    "model_types"
+  ],
+  "notes": "Platinum task: evaluate available prediction models for a given disease in Brazil from the Mosqlimate model registry. Expected output includes a model comparison report with registry analysis, model type classification, resolution comparison, performance assessment, and recommendations."
 }

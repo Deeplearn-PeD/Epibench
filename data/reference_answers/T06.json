@@ -3,9 +3,17 @@
   "expected_sources": [
     "SINAN"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Silver task: data quality assessment of SINAN dengue data. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "data_quality",
+    "completeness",
+    "missingness",
+    "consistency",
+    "bias",
+    "field_level_completeness"
+  ],
+  "notes": "Silver task: data quality assessment of SINAN dengue dataset. Expected output includes a quality report with missingness analysis, field-level completeness rates, consistency checks, and bias discussion."
 }

@@ -3,9 +3,18 @@
   "expected_sources": [
     "Pathoplexus"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: dengue genomic surveillance from Pathoplexus. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "genomic_surveillance",
+    "dengue",
+    "serotype",
+    "DENV",
+    "sequence_counts",
+    "geographic_distribution",
+    "temporal_trends"
+  ],
+  "notes": "Gold task: analyze availability and distribution of dengue genomic sequences in Brazil by serotype and state using Pathoplexus data. Expected output includes sequence count analysis by DENV-1/2/3/4, geographic distribution, temporal trends, and data gaps."
 }

@@ -6,9 +6,18 @@
     "WHO",
     "World Bank"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
-  "minimum_required_pmids": 0,
+  "minimum_required_pmids": 3,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Platinum task: maternal health report integrating SINASC, SIM, WHO and World Bank. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "maternal_health",
+    "maternal_mortality_ratio",
+    "SINASC",
+    "SIM",
+    "international_comparison",
+    "birth_outcomes",
+    "geographic_disparities"
+  ],
+  "notes": "Platinum task: comprehensive maternal health report in Brazil using SINASC (live births) and SIM (mortality) data, with international comparison via WHO/World Bank. Expected output includes maternal mortality ratio trends, age distribution of mothers, birth outcomes, geographic disparities, 4+ visualizations, and verified citations."
 }

@@ -3,9 +3,17 @@
   "expected_sources": [
     "HealthData.gov"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: hospital capacity analysis from HealthData.gov. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "hospital_capacity",
+    "bed_occupancy",
+    "covid_19",
+    "state_comparison",
+    "temporal_trends",
+    "HHS_Protect"
+  ],
+  "notes": "Gold task: analyze US hospital capacity utilization and COVID-19 burden across 5 specified states using HealthData.gov data. Expected output includes comparative analysis of bed occupancy, COVID-19 metrics, state-level differences, and temporal trends."
 }

@@ -4,9 +4,19 @@
     "Mosqlimate",
     "SINAN"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: climate-disease correlation using Mosqlimate climate data and SINAN disease data. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "correlation",
+    "climate_variables",
+    "scatter_plot",
+    "time_lag",
+    "dengue_incidence",
+    "temperature",
+    "precipitation",
+    "humidity"
+  ],
+  "notes": "Gold task: climate-disease correlation. Expected output includes correlation analysis between climate variables (temperature, precipitation, humidity) and dengue incidence in a given municipality over the past 3 years, using Mosqlimate climate data and SINAN disease data."
 }

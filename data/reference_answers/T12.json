@@ -3,9 +3,18 @@
   "expected_sources": [
     "Malaria Atlas Project"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: malaria prevalence mapping from Malaria Atlas Project. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "malaria",
+    "parasite_rate",
+    "survey_map",
+    "prevalence",
+    "species_distribution",
+    "pf_pv",
+    "geographic_gaps"
+  ],
+  "notes": "Gold task: map malaria parasite rate surveys in a given African or Amazon country using Malaria Atlas Project data. Expected output includes a survey point map, prevalence ranges, species distribution (Pf/Pv), and geographic gaps in data."
 }

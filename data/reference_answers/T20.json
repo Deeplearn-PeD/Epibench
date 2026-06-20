@@ -7,9 +7,18 @@
     "HealthData.gov",
     "WHO"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
-  "minimum_required_pmids": 0,
+  "minimum_required_pmids": 3,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Platinum task: multi-source outbreak investigation. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "outbreak_investigation",
+    "epidemiological_curve",
+    "genomic_context",
+    "environmental_assessment",
+    "health_system_capacity",
+    "international_context",
+    "multi_source_integration"
+  ],
+  "notes": "Platinum task: multi-source outbreak investigation using case notification data, genomic sequences, climate data, hospital capacity, and international surveillance reports. Expected output includes a full investigation integrating 5+ data sources, epidemiological curve, genomic context, environmental assessment, health system capacity assessment, international context, and verified citations."
 }

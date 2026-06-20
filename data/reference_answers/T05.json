@@ -3,9 +3,17 @@
   "expected_sources": [
     "SINAN"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Silver task: age/sex distribution of dengue cases from SINAN. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "age_distribution",
+    "sex_distribution",
+    "demographic_stratification",
+    "case_counts",
+    "bar_chart",
+    "proportions"
+  ],
+  "notes": "Silver task: age and sex distribution of dengue cases. Expected output includes age-group and sex-stratified case counts with appropriate visualizations (bar charts, proportions) from SINAN data."
 }

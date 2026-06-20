@@ -3,9 +3,17 @@
   "expected_sources": [
     "SINAN"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: multi-state dengue comparison from SINAN. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "multi_state",
+    "temporal_trends",
+    "spatial_distribution",
+    "incidence_rate",
+    "risk_stratification",
+    "comparative_analysis"
+  ],
+  "notes": "Gold task: compare dengue epidemiological profiles across 3 specified Brazilian states over a 3-year period. Expected output includes comparative analysis with temporal trends, spatial distribution, incidence rates, and risk stratification from SINAN data."
 }

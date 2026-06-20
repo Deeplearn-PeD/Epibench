@@ -4,9 +4,19 @@
     "WHO",
     "World Bank"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: infant mortality international comparison. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "infant_mortality_rate",
+    "international_comparison",
+    "trend_analysis",
+    "ranking",
+    "brazil",
+    "argentina",
+    "colombia",
+    "mexico"
+  ],
+  "notes": "Gold task: compare infant mortality rates between Brazil, Argentina, Colombia, and Mexico using WHO and World Bank data. Expected output includes a comparative table/graph with IMR values, trend analysis, ranking, and contextual interpretation."
 }

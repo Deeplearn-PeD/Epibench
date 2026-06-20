@@ -3,9 +3,19 @@
   "expected_sources": [
     "Eurostat"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
-  "minimum_required_pmids": 0,
+  "minimum_required_pmids": 3,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Platinum task: cross-national health systems report from Eurostat. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "health_systems",
+    "cross_national",
+    "eurostat",
+    "healthcare_expenditure",
+    "hospital_beds",
+    "physician_density",
+    "life_expectancy",
+    "self_perceived_health"
+  ],
+  "notes": "Platinum task: compare health system performance across 5 European countries using Eurostat data. Expected output includes a professional report with cross-national comparison, trend analysis, ranking tables, policy implications, and verified citations."
 }

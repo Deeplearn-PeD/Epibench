@@ -3,9 +3,17 @@
   "expected_sources": [
     "ECDC"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: European respiratory surveillance from ECDC. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "respiratory_surveillance",
+    "influenza",
+    "sars_cov_2",
+    "temporal_analysis",
+    "sentinel_data",
+    "variant_tracking"
+  ],
+  "notes": "Gold task: analyze weekly influenza and SARS-CoV-2 co-circulation patterns in a given European country for the current respiratory season using ECDC data. Expected output includes multi-pathogen temporal analysis with sentinel testing data, variant information, and activity levels."
 }

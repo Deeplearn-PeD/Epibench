@@ -3,9 +3,18 @@
   "expected_sources": [
     "PAHO"
   ],
+  "require_all_sources": true,
   "expected_pmids": [],
   "minimum_required_pmids": 0,
   "expected_values": {},
-  "methodology_keywords": [],
-  "notes": "Gold task: vaccination coverage analysis from PAHO. Expected_values and other fields are placeholders to be filled with validated reference answers."
+  "methodology_keywords": [
+    "vaccination_coverage",
+    "DTP3",
+    "MCV1",
+    "equity",
+    "trend_analysis",
+    "below_threshold",
+    "cross_country"
+  ],
+  "notes": "Gold task: analyze vaccination coverage for DTP3 and MCV1 across PAHO countries and identify disparities. Expected output includes a coverage table by country, trend analysis, identification of below-threshold countries, and equity assessment."
 }
