@@ -1,0 +1,13 @@
+{
+  "task_id": "T19",
+  "expected_sources": [
+    "WHO",
+    "World Bank",
+    "Eurostat"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Platinum task: global health inequality report from WHO, World Bank and Eurostat. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

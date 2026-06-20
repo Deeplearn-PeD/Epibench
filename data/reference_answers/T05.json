@@ -1,0 +1,11 @@
+{
+  "task_id": "T05",
+  "expected_sources": [
+    "SINAN"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Silver task: age/sex distribution of dengue cases from SINAN. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

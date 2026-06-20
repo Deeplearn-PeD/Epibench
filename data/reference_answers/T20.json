@@ -1,0 +1,15 @@
+{
+  "task_id": "T20",
+  "expected_sources": [
+    "SINAN",
+    "Pathoplexus",
+    "Mosqlimate",
+    "HealthData.gov",
+    "WHO"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Platinum task: multi-source outbreak investigation. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "T03",
+  "expected_sources": [
+    "SINAN"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Silver task: national dengue temporal series from SINAN. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

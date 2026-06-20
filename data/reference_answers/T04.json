@@ -1,0 +1,11 @@
+{
+  "task_id": "T04",
+  "expected_sources": [
+    "SIM"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Silver task: mortality spatial analysis from SIM. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

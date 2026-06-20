@@ -1,0 +1,12 @@
+{
+  "task_id": "T08",
+  "expected_sources": [
+    "Mosqlimate",
+    "SINAN"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Gold task: climate-disease correlation using Mosqlimate climate data and SINAN disease data. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

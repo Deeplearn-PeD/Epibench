@@ -1,0 +1,11 @@
+{
+  "task_id": "T12",
+  "expected_sources": [
+    "Malaria Atlas Project"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Gold task: malaria prevalence mapping from Malaria Atlas Project. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

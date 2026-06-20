@@ -1,0 +1,11 @@
+{
+  "task_id": "T21",
+  "expected_sources": [
+    "Mosqlimate"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Platinum task: predictive model evaluation from Mosqlimate registry. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "T14",
+  "expected_sources": [
+    "PAHO"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Gold task: vaccination coverage analysis from PAHO. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

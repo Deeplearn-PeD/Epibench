@@ -1,0 +1,11 @@
+{
+  "task_id": "T06",
+  "expected_sources": [
+    "SINAN"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Silver task: data quality assessment of SINAN dengue data. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}

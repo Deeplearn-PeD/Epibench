@@ -1,0 +1,11 @@
+{
+  "task_id": "T18",
+  "expected_sources": [
+    "Eurostat"
+  ],
+  "expected_pmids": [],
+  "minimum_required_pmids": 0,
+  "expected_values": {},
+  "methodology_keywords": [],
+  "notes": "Platinum task: cross-national health systems report from Eurostat. Expected_values and other fields are placeholders to be filled with validated reference answers."
+}
