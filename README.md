@@ -697,11 +697,13 @@ Results from local `epibench` runs (`epibench compare`) and the published EpidBo
 ### Local runs
 
 | Rank | Model | Score | Max | % | Tier | Run ID |
-|---|---|---|---:|---:|---:|---:|
-| 1 | anthropic:claude-sonnet-4-5 | 290.68 | 590 | 49.27 | C | 20260620T174858 |
-| 2 | openai:gpt-4o | 125.13 | 270 | 46.34 | D | 20260620T174237 |
+|---|---|---:|---:|---:|---:|---:|
+| 1 | anthropic:claude-opus-4 | 360.13 | 610 | 59.04 | C | 20260621T064007 |
+| 2 | openrouter:grok-builder-beta | 324.28 | 610 | 53.16 | C | 20260621T061718 |
+| 3 | anthropic:claude-sonnet-4-5 | 290.68 | 590 | 49.27 | C | 20260620T174858 |
+| 4 | openai:gpt-4o | 125.13 | 270 | 46.34 | D | 20260620T174237 |
 
-> **Note:** Only the most comprehensive run per model is shown. The *Max* column reflects the point total of the task subset that was run (610 = full benchmark); these are partial runs. The complete local leaderboard is written to `results/leaderboard.csv` after each run.
+> **Note:** Only the most comprehensive run per model is shown. The *Max* column reflects the point total of the task subset that was run (610 = full benchmark); these are partial runs. Models that attempted the benchmark but scored 0 are omitted from this summary. The complete local leaderboard is written to `results/leaderboard.csv` after each run.
 
 ### EpidBot self-assessment
 
