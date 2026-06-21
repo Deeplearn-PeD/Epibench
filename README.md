@@ -86,6 +86,8 @@ EpiBench-1.0 evaluates AI agents along four orthogonal dimensions:
 | **K** | Professional Reporting | Structured reports with TOC, branding, embedded visualizations, executive summaries |
 | **L** | Genomic Epidemiology | Pathogen genomic surveillance, sequence availability, serotype/lineage tracking |
 
+![domain vs competency](/domain_competency_diagram.png)
+
 ### Dimension D: Task Summary Table
 
 | Task | Name | Level | Domain | Competencies | Max Points |
@@ -695,13 +697,11 @@ Results from local `epibench` runs (`epibench compare`) and the published EpidBo
 ### Local runs
 
 | Rank | Model | Score | Max | % | Tier | Run ID |
-|---|---|---:|---:|---:|---:|---:|
+|---|---|---|---:|---:|---:|---:|
 | 1 | anthropic:claude-sonnet-4-5 | 290.68 | 590 | 49.27 | C | 20260620T174858 |
 | 2 | openai:gpt-4o | 125.13 | 270 | 46.34 | D | 20260620T174237 |
-| 3 | openai:gpt-4o | 70.18 | 240 | 29.24 | F | 20260620T174346 |
-| 4 | openai:gpt-4o | 46.75 | 80 | 58.43 | F | 20260620T174157 |
 
-> **Note:** The *Max* column reflects the point total of the task subset that was run (610 = full benchmark). Several entries are partial runs. Multiple rows for the same model (e.g., `gpt-4o`) are separate runs on different task subsets. The complete local leaderboard is written to `results/leaderboard.csv` after each run.
+> **Note:** Only the most comprehensive run per model is shown. The *Max* column reflects the point total of the task subset that was run (610 = full benchmark); these are partial runs. The complete local leaderboard is written to `results/leaderboard.csv` after each run.
 
 ### EpidBot self-assessment
 
